@@ -6,22 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce-1-loginn</title>
     <link href="/style/style.css" rel="stylesheet">
-    <!-- <link href="style.css" rel="stylesheet"> -->
+    <!-- <link href="/style/root.css" rel="stylesheet"> -->
 </head>
 <body>
+    <!-- <%- include('./partials/header', {username:"", loggedIn: "false"} ); %> -->
     <div id="main-div">
-        
+        <% if(loggedOut){ %>
+            <div> <p style="color: rgb(3, 132, 196); font-size: 2rem;"> <%= msg %> </p></div>
+        <% }else{ %>
+            <div> <p style="color: rgb(3, 132, 196); font-size: 2rem;"> <%= msg %> </p></div>
+        <% } %>
         <div id="container">
-            <!-- <form method = "POST" action="/login"> -->
+            <form method = "POST" action="/login">
                 <input id="username" name="username" class="inputs" type="text" required placeholder = "username">
                 <input id="password" name="password" class="inputs" type="password" required placeholder = "password">
-                <!-- <input type="submit" value="Login"> -->
-                <button class="inputs" id="loginBtn" >Login</button>
-                <!-- </form> -->
-                <button class="inputs" id="gotoSignUp">New User? Create account</button>
+                <input class="inputs" type="submit" value="Login" >
+                <!-- <button class="inputs" id="loginBtn" >Login</button> -->
+            </form>
+
+            <a href="/signup"><button class="inputs" id="gotoSignUp">New User? Create account</button></a>
         </div>
     </div>
-    <script src="/script/scriptLogIn.js"></script>
-    <!-- <script src="scriptLogIn.js"></script> -->
+    <!-- <script src="/script/scriptLogIn.js"></script> -->
 </body>
 </html>

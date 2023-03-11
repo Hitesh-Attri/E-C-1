@@ -1,3 +1,14 @@
 <header>
-    <h1>E-Commerce-01</h1>
+    <div id = "header">    
+        <h2 id="logo">E-Commerce-01</h1>
+
+            <% if(loggedIn){ %>
+                <div id="user-info">
+                    <%= username %>
+                    <a id="header-logout" href="/logout">Logout</a>
+                </div>
+            <% } %>
+
+
+    </div>
 </header>
