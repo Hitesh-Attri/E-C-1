@@ -13,11 +13,20 @@
     <h1>this is home page. -- Products here => </h1>
     <!-- <a href="/logout"><button>LogOut1</button></a> -->
     <!-- <button onclick="location.href='/logout'">LogOut2</button> -->
-    <ul>
-        // products
-        <% for(let i=0; i< products.length;i++){ %> 
-            <li> <%= products[i] %> </li>
-        <% } %>
-    </ul>
+    <div id="products-container"> 
+        <ul id="ulList">
+            <li>// products</li>
+            <% let x = 5; %>
+            <% if( products.length < 5) x= products.length %>
+            <% for(let i = 0; i < x; i++){ %> 
+                <li> <%= products[i] %> </li>
+            <% } %>
+        </ul>
+    </div>
+
+    <!-- <%- include('../views/partials/loadProducts', {username:username, loggedIn: loggedIn}); %> -->
+
+    <button id = "loadMoreBtn">Load more</button>
+    <script src = "/script/loadMoreScript.js"></script>
 </body>
 </html>

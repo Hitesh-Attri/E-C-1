@@ -7,7 +7,6 @@ const port = 5000;
 
 // for checking the auth.. if logged in
 var checkAuth = require('./middlewares/checkAuth');
-const { type } = require('os');
 
 app.use(session({
     secret:'keyboard cat',
@@ -119,6 +118,17 @@ app.route('/signup').get((req,res)=>{
             res.redirect('/');
         }
     })
+})
+
+app.get('/getProducts',(req,res)=>{
+    fs.readFile(__dirname+'/products.json','utf-8',(err,data)=>{
+        if(data.length === 0) theFile = [];
+        else{
+            theFile = JSON.parse(data);
+            // console.log(theFile, typeof theFile,"<<");
+        }
+        res.json(theFile);
+    });
 })
 
 app.get('/logout',(req,res)=>{
