@@ -7,6 +7,7 @@ const port = 5000;
 
 // for checking the auth.. if logged in
 var checkAuth = require('./middlewares/checkAuth');
+const { type } = require('os');
 
 app.use(session({
     secret:'keyboard cat',
@@ -37,6 +38,7 @@ app.route('/home').get((req,res)=>{
             else{
                 products = JSON.parse(data);
             }
+            // console.log(products, typeof products);
             res.render('home', {username : req.session.username, loggedIn: req.session.is_logged_in, products: products})
         })
     }else{
