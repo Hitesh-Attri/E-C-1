@@ -4,7 +4,7 @@ let loginBtn = document.getElementById('loginBtn');
 let usernameInput = document.getElementById('username');
 let passwordInput = document.getElementById('password');
 
-loginBtn.addEventListener('click',()=>{
+loginBtn.addEventListener('click',(event)=>{
     let usernameVal = usernameInput.value;
     let passwordVal = passwordInput.value;
 
@@ -12,6 +12,7 @@ loginBtn.addEventListener('click',()=>{
     passwordVal = passwordVal.trim();
 
     if(usernameVal == "" || passwordVal == ""){
+        // event.preventDefault();
         alert("-__- Field Empty!");
     }
     else{
