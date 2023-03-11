@@ -12,6 +12,7 @@ rqst.send();
 rqst.addEventListener('load',()=>{
     let products = JSON.parse(rqst.responseText);
     let noMorePrdct = false;
+    if(products.length < 5) noMorePrdct=true;
 
     loadMoreBtn.addEventListener('click',()=>{
         if(noMorePrdct ){
