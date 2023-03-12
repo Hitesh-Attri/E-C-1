@@ -11,7 +11,7 @@
 <body>
     <!-- <%- include('./partials/header', {username:"", loggedIn: "false"} ); %> -->
     <div id="main-div">
-        <% if(loggedOut){ %>
+        <% if(loggedOut == 0){ %>
             <div> <p style="color: rgb(3, 132, 196); font-size: 2rem;"> <%= msg %> </p></div>
         <% }else{ %>
             <div> <p style="color: rgb(3, 132, 196); font-size: 2rem;"> <%= msg %> </p></div>

@@ -13,7 +13,6 @@ app.use(express.static('public'));
 // app.use(express.static('public/script'));
 // app.use(express.static('public/css'));
 
-
 app.use(session({
     secret:'keyboard cat',
     resave: false,

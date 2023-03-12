@@ -18,15 +18,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 app.use(express.static('public'));
 
-
 app.route('/').get((req,res)=>{
     if(!req.session.is_logged_in){
-        res.render('root', {loggedOut: false, msg:""});
+        res.render('root', {loggedOut: 0, msg:""});
     }else{
         res.redirect('/home');
     }
 })
-
 
 app.route('/home').get((req,res)=>{
     if(req.session.is_logged_in){
@@ -52,7 +50,7 @@ app.route('/login').get((req,res)=>{
     if(req.session.is_logged_in){
         res.redirect('/home');
     }else{
-        res.render('root',{loggedOut: false, msg:""});
+        res.render('root',{loggedOut: 0, msg:""});
     }
 })
 .post((req,res)=>{
@@ -75,7 +73,8 @@ app.route('/login').get((req,res)=>{
             }
         }
         if(!flag){
-            res.redirect('/');
+            // res.redirect('/');
+            res.render('root', { loggedOut:-1, msg:"Invalid Credentials!"});
         }
     })
 })
@@ -137,7 +136,7 @@ app.get('/logout',(req,res)=>{
         console.log("/logout")
         req.session.destroy();
         // res.redirect('/');
-        res.render('root',{loggedOut: true, msg:"Logged out!"})
+        res.render('root',{loggedOut: 1, msg:"Logged out!"})
     }
     else{
         res.render('root',{loggedOut: false, msg:"Login to krlo phle :)"})
