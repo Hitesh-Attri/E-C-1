@@ -114,7 +114,8 @@ app.route('/signup').get((req,res)=>{
                     console.log("written successfully");
                 });
             });
-            res.redirect('/');
+            // res.redirect('/');
+            res.render('root', { loggedOut:2, msg:"You can login now!"});
         }
     })
 })
