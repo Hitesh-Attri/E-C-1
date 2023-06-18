@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce-1-loginn</title>
+    <link href="/style/style.css" rel="stylesheet">
+    <!-- <link href="/style/root.css" rel="stylesheet"> empty -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body >
+    <div id="main-div">
+        <% if(loggedOut == 0){ %>
+            <div> <p style="color: rgb(3, 132, 196); font-size: 2rem;"> <%= msg %> </p></div>
+        <% }else{ %>
+            <div> <p style="color: rgb(3, 132, 196); font-size: 2rem;"> <%= msg %> </p></div>
+        <% } %>
+        <div id="container">
+           
+        <div class="container" id="container-1" style="margin-top: 2rem;" >
+            <h2>Login here: </h2>
+            <form  class="form-horizontal" id="loginForm" method = "POST" action="/login">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="newPass">Username:</label>
+                <div class="col-sm-10" >
+                <input type="text" class="form-control" id="username" placeholder="username" name="username" required>
+                </div>
+            </div>
+            <div class="form-group" >
+                <label class="control-label col-sm-2" for="confirmPass">Password:</label>
+                <div class="col-sm-10">          
+                    <input type="password" class="form-control" id="password" placeholder="password" name="password" required>
+                </div>
+            </div>
+            
+            <div class="form-group ">        
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" id = "loginBtn" value="Submit" style="margin-top: 1rem;">Login</button>
+                </div>
+            </div>
+            </form>
+            <br>
+            <a href="/signup"><button class="btn btn-secondary" id="gotoSignUp">New User? Create account</button></a> <br>
+            <!-- <a href="/verifyEmail2"><button class="btn btn-secondary" id="gotoSignUp">Verify email</button></a> -->
+            <br> <a href="/forgetPass"><button class="btn btn-secondary" id = "forgotPassBtn">Forgot Password?</button></a> <br>
+        </div>
+    </div>
+
+    </div>
+    <script src="/script/scriptLogIn.js"></script>
+</body>
+</html>

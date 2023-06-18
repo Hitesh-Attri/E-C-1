@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: url(/imgs/bg.jpg)no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header{
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .eComm{
+    position: relative;
+    color: #000000;
+    font-size: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+header .navigation a{
+    color: #000000;
+    background: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 2px 15px;
+    border-radius: 20px;
+    transition: 0.4s;
+    transition-property: background;
+}
+
+header .navigation a:not(:last-child){
+    margin-right: 18px;
+}
+
+header .navigation a:hover{
+    background-color: aquamarine;
+}
+
+.content{
+    max-width: 600px;
+    margin: 55px 100px;
+}
+
+.content .info h2{
+    color: #063557;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 50px;
+    margin-bottom: 30px;
+}
+
+.content .info h2 span{
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 600;
+    /* margin-bottom: 40px; */
+}
+
+.content .info p{
+    font-size: 16px;
+    font-weight: 500;
+    margin: 40px;
+}
+
+.content .info-btn{
+    color: #ffffff;
+    background-color: #1b415c;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.4;
+    transition-property: backgroud;
+    /* margin-top: 100px; */
+}
+
+.content .info-btn:hover{
+    background: #336a92;
+}
+
+.media-icons{
+    margin-top: 100px;
+    margin-left: 650px;
+    display: flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+
+.media-icons a{
+    position: relative;
+    color: #063557;
+    font-size: 26px;
+    transition: 0.4s;
+    transition-property: transform;
+}
+.media-icons a:not(:last-child){
+    margin-right: 20px;
+}
+
+.media-icons a:hover{
+    transform: scale(1.5);
+}

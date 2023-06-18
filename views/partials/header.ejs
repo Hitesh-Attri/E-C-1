@@ -1,0 +1,33 @@
+<header style="position: sticky; top: 0;">
+    <div id = "header">    
+        <h2 id="logo">E-Commerce-01</h2>
+
+        <% if(loggedIn){ %>
+            <div id="user-info">
+                <% if(isAdmin){ %>
+                   <p style="display: inline;" class="">Admin: <%= username %></p>
+                <% }else{ %>
+                    <p style="display: inline;" class=""><%= username %></p>
+                <% } %>
+                <!-- <a class="header-logout btn btn-outline-info" href="/gotoCart"> <button>GotoCart</button> </a> -->
+                <% if(isAdmin && isCart){ %>
+                    <a class="btn btn-outline-info" href="/uploadProduct">Upload Products</a>
+                <% }else if(isAdmin && !isCart){ %>
+                    <!-- <form> -->
+                        <input type="button" class="btn btn-dark" value="Go back!" onclick="history.back()" >
+                    <!-- </form>/ -->
+                <% } else if(isCart){ %>
+                    <a class="btn btn-outline-info" href="/cart"> GotoCart </a>
+                <% }else{ %>
+                    <form style="display: inline;">
+                        <input type="button" class="btn btn-dark" value="Go back!" onclick="history.back()" >
+                    </form>
+                <% } %>
+                <% if(!isAdmin){ %>
+                    <a class="btn btn-outline-info" href="/changePass"> Change Password </a>
+                <% } %>
+                <a class="btn btn-outline-info" href="/logout"> Logout </a>
+            </div>
+        <% } %>
+    </div>
+</header>

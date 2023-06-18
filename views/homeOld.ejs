@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title> 
+    <link href="/style/home.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <%- include('../views/partials/header', {username:username, loggedIn: loggedIn}); %>
+
+    <h1>this is home page. -- Products here => </h1>
+    <!-- <a href="/logout"><button>LogOut1</button></a> -->
+    <!-- <button onclick="location.href='/logout'">LogOut2</button> -->
+    <div id="products-container"> 
+        <ul id="ulList">
+            <!-- <li>// products</li> -->
+            <!-- <br> -->
+            <% let x = 5; %>
+            <% if( products.length < 5) x= products.length %>
+
+            <div class="row">
+                <% for(let i = 0; i < x; i++){ %> 
+                    <li> 
+                        <div>
+                            <img src="<%= products[i].fileName %>">
+                            <p> <%= products[i].productName %> </p>
+                            <button id="viewDetailBtn-<%= i %>" onclick="togglePopup(this.id)">View details</button>
+                            <button id="addToCartBtn-<%= i %>" onclick="addToCart(this.id)">Add to Cart</button>
+                        </div>
+                        
+                        <div class="popup" id= "popup-<%= i %>">
+                            <div class="overlay"></div>
+                            <div class="content">
+                                <div class="close-btn" id="div-<%= i %>" onclick="togglePopup(this.id)">&times;</div>
+                                <h1>Details =></h1>    
+                                <p> Product Details here!!! </p>
+                                <p> Description: <%= products[i].description %> </p>
+                                <p> Price: <%= products[i].price %> </p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- <br> -->
+                <% } %>
+            </div>
+            
+        </ul>
+    </div>
+
+    <!-- <%- include('../views/partials/loadProducts', {username:username, loggedIn: loggedIn}); %> -->
+
+    <button id = "loadMoreBtn">Load more</button>
+    <br>
+    <form method="POST" action = "/" enctype="multipart/form-data">
+        <input type="text" name="productName" id ='productName' placeholder="Product Name" required > <br>
+        <input type="text" name="productDesc" id ='productDesc' placeholder="Product Desc" required > <br>
+        <input type="text" name="productPrice" id ='productPrice' placeholder="Product Price" required > <br>
+        <input type="file" name="productImage" id="productImg" accept="image/png, image/jpeg" required><br>
+        <input type="submit" value="Upload Product Image">
+    </form>
+
+    <script src = "/script/loadMoreScript.js"></script>
+</body>
+</html>

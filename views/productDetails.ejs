@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Product Detail</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
+        <style>
+            #header{
+                /* height: 5vh; */
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                /* margin: 1rem 1rem 1rem 1rem; */
+                background-color: aliceblue;
+                padding: 1rem;
+            }
+
+            .header-logout{
+                text-decoration: none;
+            }
+        </style>
+    </head>
+<body>
+    <%- include('../views/partials/header', {username:username, loggedIn:loggedIn,isCart:false,isAdmin:isAdmin}); %>
+
+    <div class="container-fluid featured" style="margin-top: 3rem;">
+        <div class="container sections">
+            <div class="section-title" id="trendingTab">
+            </div>
+            <div class="products-container row clearfix">
+                <div class="col-md-6 col-xs-12 product-img-lg" id="prodImgFix">
+                    <img alt="product img" src="/<%= product.fileName %>" class="col-md-12 col-xs-12 img-thumbnail">
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <h3>Product title: <%= product.productName %></h3>
+                    <h1 class="price">Price: Rs<%= product.price %></h1>
+                    <div class="row">
+                        <div class="col-md-12 d-flex flex-row">
+                            <!-- <button class="btn btn-primary mx-2 col-md-6 col-xs-12 my-btn add-to-cart">ADD TO CART</button> -->
+
+                            <button id="<%= product.productId %>" class="btn btn-primary mx-2 col-md-6 col-xs-12 my-btn add-to-cart addToCartBtn">Add to cart</button>
+
+                            <button class="btn btn-secondary mx-2 col-md-6 col-xs-12 my-btn buy" disabled>BUY</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="desc">
+                        <h4>Description</h4>
+                        
+                        <hr>
+                        <p>
+                            PRODUCT DESCRIPTION :
+                            <br>
+                            <%= product.description %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script/productDetailPage.js"></script>
+</body>
+</html>

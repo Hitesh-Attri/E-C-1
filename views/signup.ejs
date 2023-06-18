@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce-1-SignUp</title>
+    <link href="/style/style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="main-div">
+        <% if(error){ %>
+            <div> <p style="color: rgb(77, 0, 0); font-size: 2rem;"> <%= msg %> </p></div>
+        <% } %>
+        <div id="container">
+            <div class="container" id="container-1" style="margin-top: 2rem;" >
+                <h2>SignUp here: </h2>
+                <form name="signupForm" id="signupForm" class="form-horizontal" method = "POST" action="/signup">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="newPass">Username:</label>
+                        <div class="col-sm-10" >
+                        <input type="text" class="form-control" id="username" placeholder="username" name="username" required>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="control-label col-sm-2" for="email">Email:</label>
+                        <div class="col-sm-10">          
+                        <input type="email" class="form-control" id="email" placeholder="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="password">Password:</label>
+                        <div class="col-sm-10" >
+                        <input type="password" class="form-control" id="password" placeholder="password" name="password" required>
+                        </div>
+                    </div>
+                    <div class="form-group ">        
+                        <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" id="signupSubmitBtn" class="btn btn-primary " value="Submit" style="margin-top: 1rem;">SignUp</button>
+                        </div>
+                    </div>
+                </form>
+                <br>
+                <a href="/login"><button class="btn btn-secondary" id="gotoLogin">Already A User? Login Here </button></a>
+            </div>
+        </div>
+    </div>
+    <script src="/script/scriptSignUp.js"></script>
+</body>
+</html>

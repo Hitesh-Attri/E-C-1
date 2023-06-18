@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        #header{
+            /* height: 5vh; */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            /* margin: 1rem 1rem 1rem 1rem; */
+            background-color: aliceblue;
+            padding: 1rem;
+        }
+
+        .header-logout{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <%- include('../views/partials/header', { username: adminName, loggedIn: true, isCart:false, isAdmin: true}); %>
+
+    <div class="container" id="container-1" style="margin-top: 2rem;" >
+        <h1>Welcome Admin! [<%= adminName %>] </h1>
+        <form  class="form-horizontal" id="uploadProduct" method = "POST" action="/">
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="control-label col-sm-2" for="productName">ProductName:</label>
+                <div class="col-sm-10" >
+                <input type="text" class="form-control" id="productName" placeholder="Product Name" name="productName" required > 
+                </div>
+            </div> 
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="control-label col-sm-2" for="confirmPass">Description:</label>
+                <div class="col-sm-10">          
+                    <input type="text" class="form-control" id="productDesc" placeholder="Product Desc" name="productDesc" required>
+                </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;" >
+                <label class="control-label col-sm-2" for="confirmPass">Price:</label>
+                <div class="col-sm-10">          
+                    <input type="number" class="form-control" id="productPrice" placeholder="Product Price" name="productPrice" required>
+                </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="control-label col-sm-2" for="confirmPass">Quantity:</label>
+                <div class="col-sm-10">          
+                    <input type="number" class="form-control" id="totalQuantity" placeholder="Total quantity" name="totalQuantity" required>
+                </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="control-label col-sm-2" for="confirmPass">Image:</label>
+                <div class="col-sm-10">          
+                    <input type="file" name="productImage" id="productImg" accept="image/png, image/jpeg" required /><br />
+                </div>
+            </div>
+            
+            <div class="form-group ">        
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" class="btn btn-primary" value="Upload Product" style="margin-top: 1rem;">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="/script/uploadProducts.js"></script>
+</body>
+</html>

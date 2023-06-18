@@ -1,0 +1,11 @@
+connectionString = Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
+
+sql server install log folder = C:\Program Files\Microsoft SQL Server\160\Setup Bootstrap\Log\20230328_120225
+
+installation media folder = C:\SQL2022\Express_ENU
+
+installation resources folder = C:\Program Files\Microsoft SQL Server\160\SSEI\Resources
+
+
+run below commmand from command prompt
+sqlcmd -S BUNTY\SQLEXPRESS -E
